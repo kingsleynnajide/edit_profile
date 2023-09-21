@@ -14,7 +14,7 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: SafeArea(
         child: Scaffold(
-          appBar: AppBar(backgroundColor: Colors.green,
+          appBar: AppBar(backgroundColor: Color.fromARGB(255, 121, 98, 98),
             leading: Center(child: Text('Cancel')),
             title: Center(child: Text('Edit profile')),
             centerTitle: true,
@@ -27,38 +27,44 @@ class MainApp extends StatelessWidget {
               child: Container(
                 child: Column(children: [
                   Stack(
+                    clipBehavior: Clip.none,
                     children: [
-                      CircleAvatar(
-                      radius: 50,
-                      backgroundImage: Image.asset('assets/images/profile_picture.jpg').image
-                ),
-                Positioned(
-                  bottom: 0,
-                  right: 0,
-                
-                  child: Container(
-                    height: 30,
-                    width: 30,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(50)
-                    ),
-                    child: Icon(Icons.add, 
-                    size: 30, 
-                    color: Colors.grey,),
-                  ),
-                )
-          
-                
+                      Container(
+                        height: 105,
+                        width: MediaQuery.of(context).size.width,
+                        color: Colors.grey,
+                      ),
+                      Positioned(
+                        bottom:-10,
+                        left: 20,
+                        child: Row(
+                          children: [
+                            CircleAvatar(
+                                radius: 50,
+                                backgroundImage: Image.asset('assets/images/profile_picture.jpg').image
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Column(children: [
+                                          Text('gdivaguan'),
+                                          Text('online'),
+                                        ],),
+                                      )
+                          ],
+                        ),
+                      ),
                     ],
                   ),
-                SizedBox(
-                  
-                  width: 400,
-                  
-                  child: TextField(
-                    decoration: InputDecoration(hintText: 'YOUR EMAIL'),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: SizedBox(
                     
+                    width: 400,
+                    
+                    child: TextField(
+                      decoration: InputDecoration(hintText: 'EMAIL'),
+                      
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -113,7 +119,8 @@ class MainApp extends StatelessWidget {
                 SizedBox(
                   width: 400,
                   
-                  child: ElevatedButton(onPressed: (){}, child: Text('Save'), style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.green)),))
+                  child: ElevatedButton(onPressed: (){}, child: Text('Save'), 
+                  style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.green)),))
             
                 ],),
               ),
